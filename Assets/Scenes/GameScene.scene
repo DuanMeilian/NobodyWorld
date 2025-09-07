@@ -818,7 +818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000696126}
+  m_AnchoredPosition: {x: 0, y: 0.000507566}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &422034321
@@ -2310,28 +2310,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3481107693254753160, guid: a355d28755b691b4887ed797775a70a9, type: 3}
   m_PrefabInstance: {fileID: 1154240974}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1154240976 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4927746767913628908, guid: a355d28755b691b4887ed797775a70a9, type: 3}
-  m_PrefabInstance: {fileID: 1154240974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989f679485a56a94ea29dacd804b9bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1154240977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8516156896031205407, guid: a355d28755b691b4887ed797775a70a9, type: 3}
-  m_PrefabInstance: {fileID: 1154240974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7b0bcb3e7e6f943be917945f5b11d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1207435123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2548,7 +2526,6 @@ GameObject:
   - component: {fileID: 1221878141}
   - component: {fileID: 1221878140}
   - component: {fileID: 1221878139}
-  - component: {fileID: 1221878138}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: Canvas
@@ -2577,18 +2554,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1221878138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221878136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a95b6fa7030d6947b15275d26095839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1221878139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,8 +3064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bed9464390cb14459e935637c702176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1154240977}
-  settingData: {fileID: 1154240976}
   commonFile: {fileID: 4900000, guid: d1cb24d1603c8c54fb611c64031609dc, type: 3}
   dialogueTransform: {fileID: 422034320}
   dialogueData: {fileID: 1342284468481669204, guid: 951cc7e2d90c2da43bf4a0b8ddd0c974, type: 3}
@@ -3679,7 +3642,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1523664788}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9578763
+  m_Size: 0.9989415
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

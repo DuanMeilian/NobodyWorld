@@ -6,6 +6,24 @@ using UnityEngine;
 /// </summary>
 public class SaveManager : MonoBehaviour
 {
+    // 公共静态属性，其他地方都通过 SaveManager.instance 访问这个单例
+    public static SaveManager instance { get; private set; }
+
+    #region 设置单例
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // 跨场景不销毁
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
     // 存档文件路径（Application.persistentDataPath是Unity推荐的持久化路径）
     private string GetSavePath(int slot)
     {

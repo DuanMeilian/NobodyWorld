@@ -4,10 +4,10 @@ public class DialogueManager : MonoBehaviour
 {
 
     //存档管理
-    public SaveManager manager;
+    private SaveManager saveManager;
 
     //设定数据
-    public SettingData settingData;
+    private SettingManager settingManager;
 
     //共通剧情文件
     public TextAsset commonFile;
@@ -21,12 +21,18 @@ public class DialogueManager : MonoBehaviour
     //存档信息
     private SaveData saveData;
 
+    void Awake()
+    {
+        saveManager = SaveManager.instance;
+        settingManager = SettingManager.instance;
+    }
+
     void Start()
     {
         //读取设置信息
-        settingData.LoadFromPlayerPrefs();
+        settingManager.LoadSettingData();
         //读取存档
-        saveData = manager.LoadData(settingData.saveDataTotal);
+        saveData = saveManager.LoadData(settingManager.saveDataTotal);
 
         //当前玩家的进度处于第1~5天
         if (saveData.day > 0 && saveData.day < 6) 

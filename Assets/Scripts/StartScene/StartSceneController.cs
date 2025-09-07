@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 public class StartSceneController : MonoBehaviour
 {
     //存档管理
-    public SaveManager manager;
+    private SaveManager saveManager;
 
     //设定数据
-    public SettingData settingData;
+    private SettingManager settingManager;
 
-    void Start()
+    void Awake()
     {
-        Unitity.LoadSettingFirst(manager, settingData);
+        saveManager = SaveManager.instance;
+        settingManager = SettingManager.instance;
     }
 
     #region 读取指定场景
@@ -21,22 +22,9 @@ public class StartSceneController : MonoBehaviour
     /// （可用于代码中直接调用）
     /// </summary>
     /// <param name="sceneName">场景名称</param>
-    public void LoadScene(string sceneName)
+    public void LoadScene(int index)
     {
-        if (string.IsNullOrEmpty(sceneName))
-        {
-            Debug.LogError("场景名称不能为空");
-            return;
-        }
-
-        try
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"加载场景失败: {e.Message}");
-        }
+        SceneManager.LoadSceneAsync(index);
     }
     #endregion
 
@@ -50,21 +38,21 @@ public class StartSceneController : MonoBehaviour
         //存储玩家数据
         SaveData saveData = new();
         saveData.health = 100;
-        saveData.saveSlot = settingData.saveDataTotal + 1;
+        saveData.saveSlot = settingManager.saveDataTotal + 1;
         saveData.day = 1;
-        manager.SaveData(saveData, saveData.saveSlot);
+        saveManager.SaveData(saveData, saveData.saveSlot);
 
         //将已使用存档数量加1
-        settingData.saveDataTotal++;
-        settingData.SaveByPlayerPrefs();
+        settingManager.AddSaveDataNum(1);
+        settingManager.SaveSettingData();
     }
     #endregion
 
     public void InitLoadGameScreenInfo() {
         //将已有的存档数据全都读到saveDataList集合中
         List<SaveData> saveDataList = new();
-        for (int i = 1; i <= settingData.saveDataTotal; i++) {
-            SaveData saveData = manager.LoadData(i);
+        for (int i = 1; i <= settingManager.saveDataTotal; i++) {
+            SaveData saveData = saveManager.LoadData(i);
             saveDataList.Add(saveData);
         }
     }
